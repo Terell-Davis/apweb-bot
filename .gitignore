@@ -1,2 +1,7 @@
 .env
 gen-test.py
+api/
+Archipelago-main/
+__pycache__
+.vscode
+test2.py

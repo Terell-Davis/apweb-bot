@@ -1,0 +1,3 @@
+# Rename to .env
+DISCORD_TOKEN="YOURTOKENHERE"
+APHOST="https://archipelago.gg" # Change if there is a different host

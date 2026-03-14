@@ -42,13 +42,14 @@ def room_embed(room_id: str) -> discord.Embed:
     downloads = data.get("downloads", [])
     slot_patches = {item['slot']: item['download'] for item in downloads}
     #print(players)
-    #print(downloads)
+    print(slot_patches)
     if players:
         lines = [
             #f"{i+1}. **{name}** — *{game}* - {patch if (patch := get_patch_for_slot(i+1, slot_patches)) != 'None' else 'No Patch'}"
             f"{i+1}. **{name}** - __{game}__: {f'[Download Patch]({patch})' if (patch := get_patch_for_slot(i+1, slot_patches)) != 'None' else 'No Patch'}"
             for i, (name, game) in enumerate(players)
             ]
+        # stay under 1000 characters    
         chunk, chunks = "", []
         for line in lines:
             if len(chunk) + len(line) + 1 > 1000:
@@ -59,11 +60,11 @@ def room_embed(room_id: str) -> discord.Embed:
         if chunk:
             chunks.append(chunk)
 
+        # Adds to Embed
         for index, c in enumerate(chunks):
             label = f"Players ({len(players)})" if index == 0 else "Players (cont.)"
             embed.add_field(name=label, value=c, inline=False)
 
-    
     embed.add_field(name="Last Activity", value=data.get("last_activity", "Unknown"), inline=True)
     return embed
 
