@@ -21,6 +21,12 @@ pip install -r requirements.txt
 python bot.py
 ```
 
+You can also use the provided Docker Compose file
+```bash
+docker compose up -d
+```
+
+
 ## Development
 
 You can use `ApWebAPI.py` file by itself.

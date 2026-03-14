@@ -1,0 +1,4 @@
+services:
+  apweb-bot:
+    build: .
+    env_file: ".env"
